@@ -1,5 +1,15 @@
 :root {
   --fundo: #000;
+
+  --rosto: rgba(0, 0, 0, 0.6);
+  --sombra-rosto: rgba(0, 0, 0, 0.3);
+
+  --abobora: #ff9f40;
+  --sombra-abobora: #ff7f00;
+
+  --luz: #fdb832;
+  --dente: #fff;
+  --caule: green;
 }
 
 * {
@@ -8,4 +18,123 @@
   border: 0;
   outline: none;
   box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  background: var(--fundo);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: escurecer 5s ease-out infinite;
+}
+
+.abobora {
+  width: 100px;
+  height: 60px;
+  border-radius: 40%;
+  background: var(--abobora);
+
+  position: relative;
+  transform: scaleX(1.3) scaleY(2.4);
+
+  box-shadow: 2px 0 var(--sombra-abobora), -2px 0 var(--sombra-abobora),
+    22px -1px var(--abobora), -22px -1px var(--abobora),
+    24px -2px var(--sombra-abobora), -24px -2px var(--sombra-abobora),
+    44px -4px var(--abobora), -44px -4px var(--abobora),
+    24px -6px var(--abobora), -24px -6px var(--abobora);
+}
+
+.abobora::before {
+  content: "";
+  width: 10px;
+  height: 20px;
+  background: var(--caule);
+  border-radius: 100% 5% 0 0;
+
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.olhoUm,
+.olhoDois {
+  width: 10px;
+  height: 10px;
+  background: var(--rosto);
+  border-radius: 50%;
+  box-shadow: 2px 0px 0px var(--sombra-rosto);
+
+  position: absolute;
+  top: 30%;
+
+  animation: olhos 5s ease-out infinite;
+}
+
+.olhoUm {
+  left: 35%;
+  transform: translate(-150%);
+}
+
+.olhoDois {
+  right: 35%;
+  transform: translate(150%);
+}
+
+.boca {
+  width: 30px;
+  height: 12px;
+  border-radius: 0 0 50% 50%;
+  background: var(--rosto);
+  box-shadow: 2px 0px 0px var(--sombra-rosto);
+
+  position: absolute;
+  top: 60%;
+  right: 50%;
+  transform: translate(50%);
+
+  display: flex;
+  justify-content: space-evenly;
+
+  animation: boca 5s ease-out infinite;
+}
+
+.boca .dente {
+  border-top: 6px solid var(--dente);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+
+  opacity: 0;
+
+  animation: dente 5s ease-out infinite;
+}
+
+@keyframes olhos {
+  to {
+    border-radius: 0 0 50% 50%;
+    background: var(--luz);
+  }
+}
+
+@keyframes boca {
+  to {
+    background: var(--luz);
+  }
+}
+
+@keyframes dente {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes escurecer {
+  to {
+    filter: brightness(0.9);
+  }
 }
