@@ -46,6 +46,8 @@ body {
     24px -2px var(--sombra-abobora), -24px -2px var(--sombra-abobora),
     44px -4px var(--abobora), -44px -4px var(--abobora),
     24px -6px var(--abobora), -24px -6px var(--abobora);
+
+  animation: flutuar 5s ease-out infinite;
 }
 
 .abobora::before {
@@ -109,9 +111,7 @@ body {
   border-right: 4px solid transparent;
   border-bottom: 4px solid transparent;
 
-  opacity: 0;
-
-  animation: dente 5s ease-out infinite;
+  opacity: 1;
 }
 
 @keyframes olhos {
@@ -127,9 +127,15 @@ body {
   }
 }
 
-@keyframes dente {
-  to {
-    opacity: 1;
+@keyframes flutuar {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 40px;
+  }
+  100% {
+    top: 0px;
   }
 }
 
